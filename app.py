@@ -20,8 +20,8 @@ def startDisconnect():
         progress.set(value=25)
         try:
             #Caminho para o script para encontrar/resetar usuário
-            script_path = 'find_sessionid.ps1'
-            reset_path = 'reset_session.ps1'
+            script_path = "find_sessionid.ps1"
+            reset_path = "reset_session.ps1"
             command = [
                 "powershell.exe",
                  "-WindowStyle",
@@ -29,7 +29,7 @@ def startDisconnect():
                  "-NoProfile",
                  "-ExecutionPolicy",
                  "Bypass",
-                 "-File",os.path.join(os.getcwd(), script_path),
+                 "-File",  script_path,
                  '-arg_user', target_user.lower(),
                  '-arg_host',host
             ]
@@ -44,7 +44,7 @@ def startDisconnect():
                 "-NoProfile",
                 "-ExecutionPolicy",
                 "Bypass",
-                "-File", os.path.join(os.getcwd(),reset_path),
+                "-File", reset_path,
                 '-sessionId', str(data),
                 '-arg_host', host
             ]
@@ -65,7 +65,6 @@ app = customtkinter.CTk()
 app.geometry("300x250")
 app.title("Desconectar Usuário")
 font = customtkinter.CTkFont(family="Cascadia", size=16)
-app.iconbitmap("derruba.ico")
 #UI Elements
 #Texto Inserir usuário
 insiratxt = customtkinter.CTkLabel(app, text="Insira seu usuário:")
