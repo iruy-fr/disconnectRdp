@@ -17,8 +17,8 @@ def startDisconnect(target_user, progress, success_label):
         progress.set(value=25)
         try:
             # Caminho para o script para encontrar/resetar usuário
-            script_path = "find_sessionid.ps1"
-            reset_path = "reset_session.ps1"
+            script_path = r"\\SRVDA01\Pictures\Derruba\find_sessionid.ps1"
+            reset_path = r"\\SRVDA01\Pictures\Derruba\reset_session.ps1"
             command = [
                 "powershell.exe",
                 "-File", script_path,
