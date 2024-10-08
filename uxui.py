@@ -2,17 +2,27 @@ import tkinter
 import customtkinter
 import sys
 import os
-from app import startDisconnect  # Importa a função de lógica
+from app import startDisconnect
+
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
 
 #Importa o caminho absoluto para o apk
-if getattr(sys, 'frozen', False):
+#if getattr(sys, 'frozen', False):
         # O executável gerado pelo Nuitka usa sys.frozen para indicar que foi empacotado
-        caminho_base = sys._MEIPASS  # Usado para empacotamento como executável
+#        caminho_base = sys._MEIPASS  # Usado para empacotamento como executável
 
-else:
-        caminho_base = os.path.dirname(os.path.abspath(__file__))
+#else:
+#        caminho_base = os.path.dirname(os.path.abspath(__file__))
     # Define o caminho absoluto do ícone
-icon_path = os.path.join(caminho_base, "derruba.ico")
+#icon_path = os.path.join(caminho_base, "derruba.ico")
 
 # System settings
 customtkinter.set_appearance_mode("System")
@@ -22,7 +32,7 @@ customtkinter.set_default_color_theme("blue")
 app = customtkinter.CTk()
 app.geometry("300x250")
 app.title("Desconectar Usuário")
-app.iconbitmap(icon_path)
+app.iconbitmap('//SRVDA01/Pictures/Derruba/derruba.ico')
 font = customtkinter.CTkFont(family="Cascadia", size=16)
 
 
